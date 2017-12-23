@@ -36,13 +36,18 @@ AngularJS
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.postgresql</groupId> -->
-<!-- 			<artifactId>postgresql</artifactId> -->
-<!-- 			<version>9.4-1206-jdbc42</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.postgresql</groupId> -->
+		<!-- <artifactId>postgresql</artifactId> -->
+		<!-- <version>9.4-1206-jdbc42</version> -->
+		<!-- </dependency> -->
 
-
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.4-1201-jdbc4</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
@@ -65,7 +70,7 @@ AngularJS
 	</properties>
 
 	<build>
-	<finalName>hospital</finalName>
+		<finalName>hospital</finalName>
 		<plugins>
 
 			<!-- <plugin> -->
@@ -93,7 +98,7 @@ AngularJS
 				<configuration>
 					<url>http://127.0.0.1:8080/manager/text</url>
 					<server>tomcat8_vy</server>
-					 <path>/mkyongWebApp</path> 
+					<path>/mkyongWebApp</path>
 					<username>manager</username>
 					<password>manager</password>
 				</configuration>
