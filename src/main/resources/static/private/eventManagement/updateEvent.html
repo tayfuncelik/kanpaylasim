@@ -1,0 +1,59 @@
+
+<form>
+	<div class="row setup-content">
+		<div class="col-md-12">
+			<h2>Event Bilgisi Guncelleme</h2>
+			<div class="form-group">
+
+				<label class="control-label">Event Name</label>
+				<div class="input-group input-group-md">
+					<span class="input-group-addon"> <span class="glyphicon glyphicon-user"></span>
+					</span> <input required="required" ng-model="entity.dataName" class="form-control"></input>
+				</div>
+
+				<label class="control-label">Hastane Lokasyonu</label>
+				<div class="input-group input-group-md">
+					<span class="input-group-addon"> <span class="glyphicon glyphicon-map-marker"></span>
+					</span>
+					<button ng-click="getLocation()">Konum Bilgisi Al</button>
+					<input placeholder="Enlem" required="required" ng-model="entity.xLocation" class="form-control"></input> <input placeholder="Boylam"
+						required="required" ng-model="entity.yLocation" class="form-control"></input>
+				</div>
+				<div>
+				<img ng-src="{{entity.locationImage}}" /> 
+				
+				</div>
+				
+				
+				
+				<label class="control-label">Start Date:
+					<div disabled="true" type="date">{{entity.startDate | date:'dd/MM/yyyy' }}</div>
+				</label>
+				<div class="input-group input-group-md">
+					<span class="input-group-addon"> <span class="glyphicon glyphicon-user"></span>
+					</span> <input type="date" placeholder="dd-MM-yyyy" min="01-01-2017" max="31-12-2018"  ng-model="entity.startDate" class="form-control">
+					</input>
+				</div>
+
+				<label class="control-label">Event End Date :
+					<div disabled="true" type="date">{{entity.startDate | date:'dd/MM/yyyy' }}</div>
+				</label>
+				<div class="input-group input-group-md">
+					<span class="input-group-addon"> <span class="glyphicon glyphicon-user"></span>
+					</span> <input type="date" placeholder="dd-MM-yyyy" min="01-01-2017" max="31-12-2018"  ng-model="entity.endDate" class="form-control">
+					</input>
+				</div>
+
+				<label class="control-label">Event Detail</label>
+				<div class="input-group input-group-md">
+					<span class="input-group-addon"> <span class="glyphicon glyphicon-user"></span>
+					</span> <input  ng-model="entity.detail" class="form-control"></input>
+				</div>
+
+
+				<button class="btn btn-success btn-lg pull-right" ng-click="updateEvent(entity,data)">updateData1</button>
+			</div>
+		</div>
+	</div>
+</form>
+<button class="btn btn-success btn-lg  m_t_m_40" ui-sref="private.events">Previous</button>

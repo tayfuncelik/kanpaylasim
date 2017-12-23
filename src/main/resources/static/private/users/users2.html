@@ -1,0 +1,51 @@
+ 
+		
+		<div id="listContainer"  layout="column" ng-cloak>
+		 
+		 		<div layout="row" layout-align="end center"> {{userList.length}} /{{getUserCount}} Record found 
+		 			 <md-button ng-click="refleshPage()" >
+				     <i class="fa fa-refresh" aria-hidden="true"></i> reflesh</md-button>
+		 	   </div>     
+		
+			<div>
+		        <table class="table table-striped table-hover table-bordered">
+		          <thead>
+		            <tr>
+		              <th></th> 
+		              <th>ID</th> 
+		              <th>username</th>
+		              <th>firstName</th>
+		              <th>lastName</th>
+		              <th>Email</th> 
+					  <th>ACTION</th>
+		            </tr>
+		          </thead>
+		          <tbody>
+		            <tr ng-repeat="user in  userList | filter : paginate"  ><!-- ng-click="setClickedRow(user.id);" -->
+		              <th>  
+		                <md-checkbox ng-model="user.selected" ng-click="toggle(user)"></md-checkbox>
+		              </th>
+		       	      <th>{{user.id}}</th>
+		              <td>{{user.username}}</td>
+		              <td>{{user.firstName}}</td>
+		              <td>{{user.lastName}}</td>
+		              <td>{{user.email}}</td> 
+		               <td>
+			          		<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+			          		<i class="fa fa-times" aria-hidden="true"></i> 
+		               </td> 
+		            </tr>
+		          </tbody>
+		        </table>
+		    </div>
+		
+			<ul uib-pagination ng-click="setPagingData()" total-items="getUserCount"items-per-page="5" ng-model="currentPage" max-size="3" class="pagination-sm" boundary-links="true" force-ellipses="true" num-pages="numPages"></ul>
+            <pre>Page: {{currentPage}} / {{numPages}}</pre>
+		</div> 
+			   
+			   
+		 <a ui-sref="private.createUser" class="btn btn-success"><i class="fa fa-plus"></i> Add order line</a>
+		 <button class="btn btn-info" ng-click="toggleDebugMode()"><i class="fa fa-check-square-o"></i> Select / Deselect All</button>
+		 <td class="col-md-1">
+		     <a ng-click="removeUser()" class="btn btn-warning"><i class="fa fa-trash-o"></i> Remove line</a>
+		 </td> 

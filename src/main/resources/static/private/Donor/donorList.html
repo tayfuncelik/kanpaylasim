@@ -1,0 +1,79 @@
+
+<div class="loaderWrapper" ng-show="showLoader">
+	<div class="loader">Loading...</div>
+</div>
+
+
+<div id="listContainer" layout="column" ng-cloak>
+	<h2>{{ 'DONOR.DONOR_LIST' | translate }} </h2>
+
+	<div layout="row" layout-align="end center">
+		{{dataList.length}} /{{getDataCount}} {{ 'DONOR.RECORDS_FOUND' | translate }}
+		<md-button ng-click="refleshPage()"> <i class="fa fa-refresh" aria-hidden="true"></i>Yenile</md-button>
+	</div>
+
+	<table class="ui compact celled definition table">
+		<thead class="full-width">
+			<tr ng-if="screenWidth>767">
+				<th></th>
+				<th>ID</th>
+				<th>isim</th>
+				<th>Konum</th>
+				<th>{{ 'DONOR.BLOOD_TYPE' | translate }}</th>
+				<th>{{ 'DONOR.SICKNESS' | translate }}</th>
+				<th>{{ 'DONOR.SURGERY' | translate }}</th>
+				<th ng-click="orderByDate()">{{ 'DONOR.LAST_DONATION_DATE' | translate }}</th>
+				<th>Eylem</th>
+				<!-- 		       <th>createdBy</th>  -->
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="data in dataList">
+				<th ng-if="screenWidth>767">
+					<div class="checkbox">
+						<label> <input type="checkbox" ng-model="data.selected" ng-click="selectData(data)">
+						</label>
+					</div>
+				</th>
+				<th>{{data.id}}</th>
+				<td class="dataName">{{data.dataName}}</td>
+				<td>
+					<div ng-click="redirectForMap(data.xLocation,data.yLocation)">{{ 'DONOR.GO_TO_MAP' | translate }}</div>
+					 X:{{data.xLocation}} </br> Y: {{data.yLocation}}
+				</td>
+				<td class="dataType">
+					<div>{{data.bloodType | translate}}</div> 
+				</td>
+				<td class="dataName">{{data.sicknesses}}</td>
+				<td class="dataName">{{data.surgery}}</td>
+				<td class="dataType">
+					<div placeholder="dd-MM-yyyy" min="01-01-2017" max="31-12-2018" type="date">{{data.donationDate | date:'dd/MM/yyyy' }}</div>
+				</td>
+
+				<td class="h_30" ng-show="data.createdBy==localUserId">
+					<p class="f_l">
+						<button class="btn btn-primary btn-xs" ui-sref="private.updateDonor({donorId: data.id})">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</button>
+					</p>
+
+					<p class="f_l">
+						<button class="btn btn-danger btn-xs" ng-click="removeSelectedData(data.id)">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+					</p>
+				</td>
+				<!-- 	      		  <td class="dataName">{{data.createdBy}} {{localUserId}}</td> -->
+			</tr>
+		</tbody>
+	</table>
+
+	<ul uib-pagination ng-click="setPagingData()" total-items="getDataCount" items-per-page="searchQuery.offset" ng-model="currentPage" max-size="3"
+		class="pagination-sm" boundary-links="true" force-ellipses="true" num-pages="numPages"></ul>
+	<pre>Sayfa: {{currentPage}} / {{numPages}}</pre>
+</div>
+
+<a ui-sref="private.createDonor" class="btn btn-success"><i class="fa fa-plus"></i>  {{ 'DONOR.ADD_DONOR' | translate }} </a>
+<td class="col-md-1"><a ng-click="removeData()" class="btn btn-warning"><i class="fa fa-trash-o"></i>  {{ 'DONOR.REMOVE_DONOR' | translate }} </a></td>
+
+

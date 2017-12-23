@@ -1,0 +1,138 @@
+<div class="container">    
+           
+    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">{{ 'PROFILE.PROFILE' | translate }} </div>
+            </div>  
+            <div class="panel-body" >
+                      <!--  <div align="center"> 
+		                  <img ng-src="../../img/svg/male.svg" class="img-circle img-responsive" /> 
+		                </div> -->
+                
+                    <form  class="form-horizontal">
+ 
+		                <div id="div_id_update" class="form-group required">
+                            <label for="id_username" class="control-label col-md-4  requiredField"> 
+{{ 'PROFILE.UPDATE' | translate }} <span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <toggle-switch ng-model="switchStatus" class="switch-success"></toggle-switch>
+                            </div>
+                        </div>
+                        
+                        
+                        <div id="div_id_username" class="form-group required">
+                            <label for="id_username" class="control-label col-md-4  requiredField"> 
+{{ 'PROFILE.USERNAME' | translate }} <span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" ng-disabled="!switchStatus" ng-model="entity.username" id="id_username" maxlength="30" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+                        <div id="div_id_email" class="form-group required">
+                            <label for="id_email" class="control-label col-md-4  requiredField"> E-mail<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md emailinput form-control" id="id_email" ng-disabled="!switchStatus" ng-model="entity.email"  style="margin-bottom: 10px" type="email" />
+                            </div>     
+                        </div>
+                         <div id="div_id_name" class="form-group required"> 
+                            <label for="id_name" class="control-label col-md-4  requiredField">
+{{ 'PROFILE.NAME' | translate }} <span class="asteriskField">*</span> </label> 
+                            <div class="controls col-md-8 "> 
+                                <input class="input-md textinput textInput form-control" id="id_name"  ng-disabled="!switchStatus" ng-model="entity.firstName" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+                        <div id="div_id_lastname" class="form-group required"> 
+                            <label for="id_name" class="control-label col-md-4  requiredField"> 
+{{ 'PROFILE.LAST_NAME' | translate }} <span class="asteriskField">*</span> </label> 
+                            <div class="controls col-md-8 "> 
+                                <input class="input-md textinput textInput form-control" id="id_lastname" ng-disabled="!switchStatus" ng-model="entity.lastName" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+                        
+                         <div id="div_id_password" class="form-group required"> 
+                            <label for="id_name" class="control-label col-md-4  requiredField">
+{{ 'PROFILE.PASSWORD' | translate }} :<span class="asteriskField">*</span> </label> 
+                            <div class="controls col-md-8 "> 
+  
+	                       		  <input ng-disabled="!switchStatus" type="{{inputType}}" ng-model="entity.password" 
+			                       		   id="id_password" class="input-md textinput textInput form-control"   
+			                       		   style="margin-bottom: 10px" type="text" >
+								  <input type="checkbox" id="checkbox" ng-model="passwordCheckbox" ng-click="hideShowPassword()" />
+								  <label for="checkbox" ng-if="passwordCheckbox">
+									{{ 'PROFILE.HIDE_PASSWORD' | translate }} </label>
+								  <label for="checkbox" ng-if="!passwordCheckbox">
+								  {{ 'PROFILE.SHOW_PASSWORD' | translate }} </label>  
+                             </div>
+                        </div>
+                        
+                        <div id="div_id_password" class="form-group required"> 
+                            <label for="id_name" class="control-label col-md-4  requiredField">
+                            {{ 'PROFILE.CONFIRM_PASSWORD' | translate }} 
+                            :<span class="asteriskField">*</span> </label> 
+                            <div class="controls col-md-8 ">  
+                               <input ng-disabled="!switchStatus" ng-model="entity.confirmPassword" id="id_password" class="input-md textinput textInput form-control" type="password" name="psw"  style="margin-bottom: 10px" type="text" >
+                            </div>
+                        </div>
+                    
+                      
+                        <div class="form-group"> 
+                            <div class="aab controls col-md-4 ">  
+         				    </div>
+                            <div class="controls col-md-8 ">
+                                <input type="submit"  ng-click="updateUser(entity)" ng-disabled="!switchStatus" class="btn btn-primary btn btn-info"   />
+                            </div>
+                        </div> 
+                 </form>
+                 
+            </div>
+        </div>
+    </div> 
+</div>
+     
+
+
+ <!--  <div id="div_id_gender" class="form-group required">
+                            <label for="id_gender"  class="control-label col-md-4  requiredField"> Gender<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 "  style="margin-bottom: 10px">
+                                 <label class="radio-inline"> <input type="radio" name="gender" id="id_gender_1" value="M"  style="margin-bottom: 10px">Male</label>
+                                 <label class="radio-inline"> <input type="radio" name="gender" id="id_gender_2" value="F"  style="margin-bottom: 10px">Female </label>
+                            </div>
+                        </div>
+                        <div id="div_id_password1" class="form-group required">
+                            <label for="id_password1" class="control-label col-md-4  requiredField">Password<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 "> 
+                                <input class="input-md textinput textInput form-control" id="id_password1" name="password1" placeholder="Create a password" style="margin-bottom: 10px" type="password" />
+                            </div>
+                        </div>
+                        <div id="div_id_password2" class="form-group required">
+                             <label for="id_password2" class="control-label col-md-4  requiredField"> Re:password<span class="asteriskField">*</span> </label>
+                             <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control" id="id_password2" name="password2" placeholder="Confirm your password" style="margin-bottom: 10px" type="password" />
+                            </div>
+                        </div>
+                       
+                        <div id="div_id_company" class="form-group required"> 
+                            <label for="id_company" class="control-label col-md-4  requiredField"> company name<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 "> 
+                                 <input class="input-md textinput textInput form-control" id="id_company" name="company" placeholder="your company name" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div> 
+                        <div id="div_id_catagory" class="form-group required">
+                            <label for="id_catagory" class="control-label col-md-4  requiredField"> catagory<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 "> 
+                                 <input class="input-md textinput textInput form-control" id="id_catagory" name="catagory" placeholder="skills catagory" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div> 
+                        <div id="div_id_number" class="form-group required">
+                             <label for="id_number" class="control-label col-md-4  requiredField"> contact number<span class="asteriskField">*</span> </label>
+                             <div class="controls col-md-8 ">
+                                 <input class="input-md textinput textInput form-control" id="id_number" name="number" placeholder="provide your number" style="margin-bottom: 10px" type="text" />
+                            </div> 
+                        </div> 
+                        <div id="div_id_location" class="form-group required">
+                            <label for="id_location" class="control-label col-md-4  requiredField"> Your Location<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control" id="id_location" name="location" placeholder="Your Pincode and City" style="margin-bottom: 10px" type="text" />
+                            </div> 
+                        </div>
+                         -->

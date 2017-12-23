@@ -1,0 +1,266 @@
+
+<form>
+	<div class="row setup-content" id="step-1">
+		<div class="col-md-12">
+			<h2>Donor Bilgisi</h2>
+			<div class="form-group">
+
+				<label class="control-label">isim</label>
+				<div class="input-group input-group-md">
+					<span class="input-group-addon"> <span class="glyphicon glyphicon-user"></span>
+					</span> <input required="required" ng-model="entity.dataName" class="form-control"></input>
+				</div>
+
+
+				<label class="control-label">Yas</label>
+				<div class="input-group input-group-md">
+					<span class="input-group-addon"> <span class="glyphicon glyphicon-map-marker"></span>
+					</span> <input required="required" ng-model="entity.age" class="form-control"></input>
+				</div>
+
+
+				<label class="control-label">Kan Basinci</label>
+				<div class="input-group input-group-md">
+					<span class="input-group-addon"> <span class="glyphicon glyphicon-map-marker"></span>
+					</span> <input required="required" ng-model="entity.bloodPressure" class="form-control"></input>
+				</div>
+
+				<label class="control-label">Kilo</label>
+				<div class="input-group input-group-md">
+					<span class="input-group-addon"> <span class="glyphicon glyphicon-map-marker"></span>
+					</span> <input required="required" ng-model="entity.weight" class="form-control"></input>
+				</div>
+
+
+				<label class="control-label">Son Kan Veris Tarihi</label>
+				<div class="input-group input-group-md">
+					<span class="input-group-addon"> <span class="glyphicon glyphicon-hourglass"></span>
+					</span> <input type="date" placeholder="dd-MM-yyyy" min="01-01-2017" max="31-12-2018" ng-model="entity.donationDate"> </input>
+				</div>
+
+
+
+				<label class="control-label"> {{ 'DONOR.DONOR_LOCATION' | translate }} </label>
+				<div class="input-group input-group-md">
+					<span class="input-group-addon"> <span class="glyphicon glyphicon-map-marker"></span>
+					</span>
+					<button ng-click="getLocation()">Konum Bilgisi Al</button>
+					<input placeholder="Enlem" required="required" ng-model="entity.xLocation" class="form-control"></input> <input placeholder="Boylam"
+						required="required" ng-model="entity.yLocation" class="form-control"></input>
+				</div>
+				<!-- 		           <div id="map" src="entity.locationImage"></div> -->
+				<img ng-src="{{entity.locationImage}}" /> <label class="control-label">Hastaliklar</label>
+				<div class="input-group input-group-md">
+					<span class="input-group-addon"> <span class="glyphicon glyphicon-map-marker"></span>
+					</span> <input required="required" ng-model="entity.sicknesses" class="form-control"></input>
+				</div>
+
+
+
+
+
+				<label class="control-label">Kan Grubu</label>
+				<div class="input-group input-group-md">
+					<span class="input-group-addon" id="sizing-addon1"> <span class="glyphicon glyphicon-heart"></span>
+					</span> <select class="form-control" ng-model="entity.bloodType" ng-options="ba.value as ba.name for ba in dataArray"></select>
+				</div>
+
+ 
+
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+
+							<div class="col-md-3">
+								<label  class="control-label requiredField">1) {{ 'DONOR.OPERATIONS.SURGERY' | translate }}<span class="asteriskField">*</span>
+								</label>
+							</div>
+
+							<div class="col-md-3">
+								<label class="radio-inline"> <input type="radio"  value="true" ng-model="entity.surgery" style="margin-bottom: 10px">{{ 'DONOR.YES' | translate }}
+								</label> <label class="radio-inline"> <input type="radio"  value="false" ng-model="entity.surgery" style="margin-bottom: 10px">{{ 'DONOR.NO' | translate }}
+								</label>
+							</div>
+						</div>
+						</br>
+						<!--  <hr class="line" /> -->
+						<div class="col-md-12 ">
+							<div class="col-md-3">
+								<label  class="control-label requiredField">2) {{ 'DONOR.OPERATIONS.FEEL_GOOD' | translate }}<span
+									class="asteriskField">*</span>
+								</label>
+							</div>
+							<div class="col-md-3">
+								<label class="radio-inline"> <input type="radio"  value="true" ng-model="entity.feelGood" style="margin-bottom: 10px" />
+									{{ 'DONOR.YES' | translate }}
+								</label> <label class="radio-inline"> <input type="radio"  value="false" ng-model="entity.feelGood" style="margin-bottom: 10px" />{{ 'DONOR.NO' | translate }}
+								</label>
+							</div>
+						</div>
+
+						</br>
+						<!--  <hr class="line" /> -->
+
+						<div class="col-md-12 ">
+							<div class="col-md-3">
+								<label  class="control-label requiredField">3) {{ 'DONOR.OPERATIONS.VIRAL_HEPATIT' | translate }}<span
+									class="asteriskField">*</span>
+								</label>
+							</div>
+							<div class="col-md-3">
+								<label class="radio-inline"> <input type="radio"  value="true" ng-model="entity.viralHepatit" style="margin-bottom: 10px" />
+									{{ 'DONOR.YES' | translate }}
+								</label> <label class="radio-inline"> <input type="radio"  value="false" ng-model="entity.viralHepatit"
+									style="margin-bottom: 10px" />{{ 'DONOR.NO' | translate }}
+								</label>
+							</div>
+						</div>
+
+						</br>
+						<!--  <hr class="line" /> -->
+
+						<div class="col-md-12 ">
+							<div class="col-md-3">
+								<label  class="control-label requiredField">4) {{ 'DONOR.OPERATIONS.BLOOD_TRANSFER' | translate }}<span
+									class="asteriskField">*</span>
+								</label>
+							</div>
+							<div class="col-md-3">
+								<label class="radio-inline"> <input type="radio"  value="true" ng-model="entity.bloodTransf" style="margin-bottom: 10px" />
+									{{ 'DONOR.YES' | translate }}
+								</label> <label class="radio-inline"> <input type="radio"  value="false" ng-model="entity.bloodTransf"
+									style="margin-bottom: 10px" />{{ 'DONOR.NO' | translate }}
+								</label>
+							</div>
+						</div>
+
+						</br>
+						<!-- <hr class="line" /> -->
+
+						<div class="col-md-12 ">
+							<div class="col-md-3">
+								<label  class="control-label requiredField">5) {{ 'DONOR.OPERATIONS.AIDS' | translate }}<span class="asteriskField">*</span>
+								</label>
+							</div>
+							<div class="col-md-3">
+								<label class="radio-inline"> <input type="radio"  value="true" ng-model="entity.aids" style="margin-bottom: 10px" /> {{ 'DONOR.YES' | translate }}
+								</label> <label class="radio-inline"> <input type="radio"  value="false" ng-model="entity.aids" style="margin-bottom: 10px" />{{ 'DONOR.NO' | translate }}
+								</label>
+							</div>
+						</div>
+						</br>
+						<!--  <hr class="line" /> -->
+						<div class="col-md-12 ">
+							<div class="col-md-3">
+								<label  class="control-label requiredField">6) {{ 'DONOR.OPERATIONS.SITMA' | translate }}<span class="asteriskField">*</span>
+								</label>
+							</div>
+							<div class="col-md-3">
+								<label class="radio-inline"> <input type="radio"  value="true" ng-model="entity.sitma" style="margin-bottom: 10px" />
+									{{ 'DONOR.YES' | translate }}
+								</label> <label class="radio-inline"> <input type="radio"  value="false" ng-model="entity.sitma" style="margin-bottom: 10px" />{{ 'DONOR.NO' | translate }}
+								</label>
+							</div>
+						</div>
+						</br>
+						<!--  <hr class="line" /> -->
+						<div class="col-md-12 ">
+							<div class="col-md-3">
+								<label  class="control-label requiredField">7) {{ 'DONOR.OPERATIONS.BRAIN_SURGERY' | translate }}<span
+									class="asteriskField">*</span>
+								</label>
+							</div>
+							<div class="col-md-3">
+								<label class="radio-inline"> <input type="radio"  value="true" ng-model="entity.brainSurgery" style="margin-bottom: 10px" />
+									{{ 'DONOR.YES' | translate }}
+								</label> <label class="radio-inline"> <input type="radio"  value="false" ng-model="entity.brainSurgery"
+									style="margin-bottom: 10px" />{{ 'DONOR.NO' | translate }}
+								</label>
+							</div>
+						</div>
+						<!--  <hr class="line" /> -->
+						</br>
+						<div class="col-md-12 ">
+							<div class="col-md-3">
+								<label  class="control-label requiredField">8) {{ 'DONOR.OPERATIONS.TAKEN_ALCOHOL' | translate }}<span
+									class="asteriskField">*</span>
+								</label>
+							</div>
+							<div class="col-md-3">
+								<label class="radio-inline"> <input type="radio"  value="true" ng-model="entity.takenAlcohol" style="margin-bottom: 10px" />
+									{{ 'DONOR.YES' | translate }}
+								</label> <label class="radio-inline"> <input type="radio"  value="false" ng-model="entity.takenAlcohol"
+									style="margin-bottom: 10px" />{{ 'DONOR.NO' | translate }}
+								</label>
+							</div>
+						</div>
+						</br>
+						<!--  <hr class="line" /> -->
+						<div class="col-md-12 ">
+							<div class="col-md-3">
+								<label  class="control-label requiredField">9) {{ 'DONOR.OPERATIONS.ANEMI' | translate }}<span class="asteriskField">*</span>
+								</label>
+							</div>
+							<div class="col-md-3">
+								<label class="radio-inline"> <input type="radio"  value="true" ng-model="entity.anemi" style="margin-bottom: 10px" />
+									{{ 'DONOR.YES' | translate }}
+								</label> <label class="radio-inline"> <input type="radio"  value="false" ng-model="entity.anemi" style="margin-bottom: 10px" />{{ 'DONOR.NO' | translate }}
+								</label>
+							</div>
+						</div>
+						</br>
+						<div class="col-md-12 ">
+							<div class="col-md-3">
+								<label  class="control-label requiredField">10) {{ 'DONOR.OPERATIONS.HARMFULL_MEDICINE' | translate }}<span
+									class="asteriskField">*</span>
+								</label>
+							</div>
+							<div class="col-md-3">
+								<label class="radio-inline"> <input type="radio"  value="true" ng-model="entity.harmfullMedicine"
+									style="margin-bottom: 10px" /> {{ 'DONOR.YES' | translate }}
+								</label> <label class="radio-inline"> <input type="radio"  value="false" ng-model="entity.harmfullMedicine"
+									style="margin-bottom: 10px" />{{ 'DONOR.NO' | translate }}
+								</label>
+							</div>
+						</div>
+						</br>
+						<div class="col-md-12 ">
+							<div class="col-md-3"></div>
+							<div class="col-md-3">
+								<li>Tegison(etretinat)</li>
+								<li>Akutan</li>
+								<li>Proscar</li>
+								<li>Propecia</li>
+								<li>Soriatane(acitretin)</li>
+							</div>
+							<div class="col-md-3"></div>
+							<div class="col-md-3"></div>
+						</div>
+
+						<!--  <hr class="line" /> -->
+						<div class="col-md-12 ">
+							<div class="col-md-3"></div>
+							<div class="col-md-3"></div>
+							<div class="col-md-3"></div>
+							<div class="col-md-3"></div>
+						</div>
+
+					</div>
+				</div>
+
+
+
+
+
+				<button class="btn btn-success btn-lg pull-right" ng-click="saveDonor(entity)" ng-if="donorId">{{ 'DONOR.UPDATE' | translate }}</button>
+				<button class="btn btn-success btn-lg pull-right" ng-click="createDonor(entity)" ng-if="!donorId">{{ 'DONOR.CREATE' | translate }}</button>
+
+			</div>
+		</div>
+	</div>
+</form>
+
+<button class="btn btn-success btn-lg  m_t_m_40" ui-sref="private.donorList">{{ 'DONOR.BACK' | translate }}</button>
+
+

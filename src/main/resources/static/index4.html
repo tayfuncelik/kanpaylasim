@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <title>Leyla Zerya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/main2.css">  
+   
+<!--  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'> -->
+   
+<script src="dist/angular.min.js"></script>
+<script src="dist/angular-ui-router.min.js"></script>
+<script src="dist/angular-local-storage.js"></script>
+<script src="dist/ui-bootstrap-tpls-2.5.0.js"></script>
+   
+<script src="js/common.app.js"></script>
+<script src="js/common.service.js"></script>
+<script src="js/app.js"></script>
+<script src="js/main2.js"></script>
+<script src="js/angular-scroll.js"></script> 
+   
+   
+<link href='dist/carousel/angular-carousel.css' rel='stylesheet' type='text/css'>
+<script src="dist/angular-touch.min.js"></script>
+<link href='css/demo.css' rel='stylesheet' type='text/css'>
+<link href='css/leftMenuTransparent.css' rel='stylesheet' type='text/css'>
+<!-- <link href='css/social-share-kit.css' rel='stylesheet' type='text/css'> -->
+<!-- <link rel="stylesheet" href="css/angular-material.min.css"> -->
+ 
+ 
+<!-- Owl Stylesheets -->
+<link rel="stylesheet" href="owlcarousel/assets/css/docs.theme.min.css">
+<link rel="stylesheet" href="owlcarousel/assets/owlcarousel/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="owlcarousel/assets/owlcarousel/assets/owl.theme.default.min.css">
+<script src="owlcarousel/assets/vendors/jquery.min.js"></script>
+<script src="owlcarousel/assets/owlcarousel/owl.carousel.js"></script>
+<!-- Owl Stylesheets -->
+    
+    
+   <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+
+<script type="text/javascript">
+// 	var endPoint = "http://leylazerya.com";
+	var endPoint = "http://localhost:8080";
+</script>
+     
+</head>
+  
+<body ng-app="routerApp" ng-controller="MyCtrl">
+
+
+<!-- <div layout="row"       layout-align="end center"> -->
+<!--  <nav id="bt-menu"  class="bt-menu" > -->
+<!-- 	<a href="http://localhost:8080/deneme5.html" class="bt-menu-trigger" ng-click="toogleMenu()"><span>Menu</span></a> -->
+<!-- </nav> -->
+ 
+		 <div>
+			  <div class="leftMenu">
+			    <div class="web-sosyalmedya">
+			        <a target="_blank" href="https://www.facebook.com/leyla.zerya" class="ssk ssk-facebook"></a>
+			        <a  target="_blank"href="https://twitter.com/_mezopotamya__" class="ssk ssk-twitter"></a>
+			        <a target="_blank" href="https://www.youtube.com/channel/UCoHjAef7K_dKmBy0DOdjgfg" class="ssk ssk-google-plus"></a>
+			        <a href="" class="ssk ssk-tumblr"></a>
+			        <a href="" class="ssk ssk-email"></a>
+			    </div>
+			</div>
+		</div> 
+ 
+  
+		<div id="myNav" class="overlay"  >
+		  <a  class="closebtn" onclick="closeNav()">&times;</a>
+		  <div class="overlay-content">
+		    <a  href="#section-1" du-smooth-scroll du-scrollspy onclick="closeNav()">ANASAYFA</a>
+		    <a href="#section-2" du-smooth-scroll du-scrollspy onclick="closeNav()">ALBÜMLER</a>
+		    <a href="#section-3" du-smooth-scroll du-scrollspy onclick="closeNav()">GALERİ</a>
+		    <a href="#section-3" du-smooth-scroll du-scrollspy onclick="closeNav()">ETKİNLİK</a>
+		    <a href="#section-3" du-smooth-scroll du-scrollspy onclick="closeNav()">KLİPLER</a>
+		    <a href="#section-4" du-smooth-scroll du-scrollspy onclick="closeNav()">İLETİŞİM</a>
+		    <a href="{{endPoint}}/deneme5.html" du-smooth-scroll du-scrollspy onclick="closeNav()">GİRİŞ YAP / KAYIT OL</a>
+		  </div>
+		</div>
+
+  
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()">
+		
+			<div class="solkare" id="menuac">
+				<div class="p_l_17"> 
+					<i class="fa fa-bars color_white"></i>
+			 	</div>
+				 
+				<svg height="250" width="55">
+					  <text x="0" y="0" fill="white" transform="rotate(270 ,130,90)">LEYLA ZERYA</text>
+					  Sorry, your browser does not support inline SVG.
+				</svg>
+			</div>
+		</span>
+
+
+
+	<div class="wrap" >
+	 
+	  
+	  <h1>SANATCI BİLGİLERİ</h1>
+	  <section id="section-1"  >
+	     
+	  </section>
+	
+	  <section name="section-2">
+	    <h2>Resimler </h2>
+	 
+	 
+				  <section id="demos">
+				      <div class="row">
+				        <div class="large-12 columns">
+				          <div class="owl-carousel owl-theme">
+				            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=1" data-src-retina="https://placehold.it/350x250&text=1-retina" alt="">
+				            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=2" data-src-retina="https://placehold.it/350x250&text=2-retina" alt="">
+				            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=3" alt="">
+				            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=4" alt="">
+				            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=5" alt="">
+				            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=6" alt="">
+				            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=7" alt="">
+				            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=8" alt="">
+				            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=9" alt="">
+				            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=10" alt="">
+				            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=11" alt="">
+				          </div>
+				 
+				          <script>
+				            jQuery(document).ready(function($) {
+				              $('.owl-carousel').owlCarousel({
+				                items: 4,
+				                lazyLoad: true,
+				                loop: true,
+				                margin: 10
+				              });
+				            });
+				          </script>
+				        </div>
+				      </div>
+				    </section>
+	 
+	  </section>
+	
+	  <section id="section-3">
+	    <h2>Klipler</h2>
+	    <p>test</p>
+	 
+	    <section id="demos">
+	      <div class="row">
+	        <div class="large-12 columns">
+	          <div class="owl-carousel owl-theme">
+	            <div class="item-video" data-merge="3">
+	              <a class="owl-video" href="https://vimeo.com/23924346">
+				  </a> 
+	            </div>
+	            <div class="item-video" data-merge="1">
+	              <a class="owl-video" href="https://www.youtube.com/watch?v=JpxsRwnRwCQ"></a> 
+	            </div>
+	            <div class="item-video" data-merge="2">
+	              <a class="owl-video" href="https://www.youtube.com/watch?v=FBu_jxT1PkA"></a> 
+	            </div>
+	            <div class="item-video" data-merge="1">
+	              <a class="owl-video" href="https://www.youtube.com/watch?v=oy18DJwy5lI"></a> 
+	            </div>
+	            <div class="item-video" data-merge="2">
+	              <a class="owl-video" href="https://www.youtube.com/watch?v=H3jLkJrhHKQ"></a> 
+	            </div>
+	            <div class="item-video" data-merge="3">
+	              <a class="owl-video" href="https://www.youtube.com/watch?v=g3J4VxWIM6s"></a> 
+	            </div>
+	            <div class="item-video" data-merge="1">
+	              <a class="owl-video" href="https://www.youtube.com/watch?v=0fhoIate4qI"></a> 
+	            </div>
+	            <div class="item-video" data-merge="2">
+	              <a class="owl-video" href="https://www.youtube.com/watch?v=EF_kj2ojZaE"></a> 
+	            </div>
+	          </div>
+	 
+	          <script>
+	            $(document).ready(function() {
+	              $('.owl-carousel').owlCarousel({
+	                items: 1,
+	                merge: true,
+	                loop: true,
+	                margin: 10,
+	                video: true,
+	                lazyLoad: true,
+	                center: true,
+	                responsive: {
+	                  480: {
+	                    items: 2
+	                  },
+	                  600: {
+	                    items: 4
+	                  }
+	                }
+	              })
+	            })
+	          </script>
+	        </div>
+	      </div>
+	    </section>
+	  
+	  
+	  
+	  </section>
+	
+	  <section id="section-4">
+	    <h2>Etkinlikler</h2>
+	 <!--    <img src="http://lorempixel.com/1000/600/" alt="" />
+	 -->
+	    <p>Etkinlikler bu alanda gösterilecektir.</p>
+	  </section>
+	  <footer>
+	    <button ng-click="toTheTop()">Yukarı Çık!</button>  
+	<!--     <button ng-click="toSection3()">To section 3</button> -->
+	  </footer>
+	</div>
+
+ 
+</body>
+
+<script>
+	function openNav() {
+		if(document.getElementById("myNav").style.width =="100%"){
+			  document.getElementById("myNav").style.width = "0%";
+		}else{
+	
+		    document.getElementById("myNav").style.width = "100%";	
+		}
+	}
+	
+	function closeNav() {
+	    document.getElementById("myNav").style.width = "0%";
+	}
+</script>
+</html>

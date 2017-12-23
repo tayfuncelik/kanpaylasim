@@ -1,0 +1,67 @@
+  
+  
+<div class="loaderWrapper" ng-show="showLoader">
+  <div class="loader">Loading...</div>
+</div>
+  
+<div id="listContainer"  layout="column" ng-cloak>
+
+
+	<div layout="row" layout-align="end center"> {{userList.length}} /{{getUserCount}} Kayit Bulundu
+		 <md-button ng-click="refleshPage()" > <i class="fa fa-refresh" aria-hidden="true"></i> Yenile</md-button>
+	   </div>   
+  
+ 
+				<table class="ui compact celled definition table">
+					  <thead class="full-width">
+					     <tr ng-if="screenWidth>767">
+					       <th></th> 
+					       <th>ID</th> 
+					       <th>username</th>
+					       <th>isim</th>
+					       <th>soyisim</th>
+					       <th>email</th>
+					       <th>ACTION</th> 
+					     </tr>
+					  </thead>
+					  <tbody>
+					    <tr  ng-repeat="data in  userList " >
+					        <th  ng-if="screenWidth>767">  
+					           <div class="checkbox">
+							     <label>
+							       <input type="checkbox"ng-model="data.selected" ng-click="selectData(data)"> 
+							     </label>
+							   </div> 
+					        </th>
+						    <th>{{data.id}}</th>
+					        <td class="dataName"> {{data.username}} </td>
+					        <td>{{data.firstName}}</td>
+			       	        <td class="dataType" >  {{data.lastName}} </td>
+			      	        <td class="dataType">{{data.email}}  </td>
+					       
+					           <td class="h_30"> 
+					         		 <p class="f_l">
+					          		 <button class="btn btn-primary btn-xs" ui-sref="private.updateUser({userId: data.id})" >
+					          			<span class="glyphicon glyphicon-pencil"></span>
+					          		 </button>
+					         		 </p>
+					         		 
+					         		 <p class="f_l">
+								  	<button class="btn btn-danger btn-xs" ng-click="removeSelectedData(data.id)">
+								  		<span class="glyphicon glyphicon-trash"></span>
+								  	</button>
+							  	 </p>
+					      		 </td>
+							  
+					      </tr>
+					  </tbody> 
+				</table>
+
+     			<ul uib-pagination ng-click="setPagingData()" total-items="getUserCount"items-per-page="5" ng-model="currentPage" max-size="3" class="pagination-sm" boundary-links="true" force-ellipses="true" num-pages="numPages"></ul>
+            <pre>Page: {{currentPage}} / {{numPages}}</pre>
+	   </div> 
+	   
+	     <a ui-sref="private.createUser" class="btn btn-success"> <i class="fa fa-plus"></i>Ekle </a>
+ 	     <td class="col-md-1">
+             <a ng-click="removeUser()"  class="btn btn-warning" ><i class="fa fa-trash-o"></i>Sil</a>
+         </td> 

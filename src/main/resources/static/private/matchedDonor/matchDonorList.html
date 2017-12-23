@@ -1,0 +1,87 @@
+
+<div class="loaderWrapper" ng-show="showLoader">
+	<div class="loader">Loading...</div>
+</div>
+
+<div id="listContainer" layout="column" ng-cloak>
+
+	<div layout="row" layout-align="end center">
+		{{dataList.length}} /{{getDataCount}} {{ 'DONOR.RECORDS_FOUND' | translate }}
+		<md-button ng-click="refleshPage()"> <i class="fa fa-refresh" aria-hidden="true"></i>Yenile</md-button>
+	</div>
+
+
+	<section>
+		<div class="container py-3">
+			<div class="card">
+				<div class="row ">
+					<div class="col-md-4">
+
+						<img ng-if="!lastDonor.locationImage" src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97400&w=200&h=200" class="w-100"> 
+						<img src="{{lastDonor.locationImage}}">
+					</div>
+					<div class="col-md-8 px-3">
+						<div class="card-block px-3">
+							<h4 class="card-title">{{lastDonor.dataName}}</h4>
+							<p class="card-text">
+								<label>{{ 'MATCHED_DONOR.BLOOD_TYPE' | translate }}:</label> {{lastDonor.bloodType | translate}}
+							</p>
+							<!-- 							<p class="card-text">{{lastDonor.sicknesses}}</p> -->
+							<p class="card-text">{{lastDonor.surgery}}</p>
+
+							<div ng-click="redirectForMap(lastDonor.xLocation,lastDonor.yLocation)"></div>
+							<label>Haritaya Git =></label> X:{{lastDonor.xLocation}}- Y: {{lastDonor.yLocation}}
+
+							<p class="card-text">
+							<div placeholder="dd-MM-yyyy" min="01-01-2017" max="31-12-2018" type="date">
+								<label>{{ 'MATCHED_DONOR.START_DATE' | translate }}</label> {{lastDonor.startDate | date:'dd/MM/yyyy' }}
+							</div>
+							<div placeholder="dd-MM-yyyy" min="01-01-2017" max="31-12-2018" type="date">
+								<label>{{ 'MATCHED_DONOR.END_DATE' | translate }}</label> {{lastDonor.endDate | date:'dd/MM/yyyy' }}
+							</div>
+
+							</p>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+</div>
+</section>
+<h2>{{ 'MATCHED_DONOR.MATCH_DONOR_LIST' | translate }}</h2>
+
+<table class="ui compact celled definition table">
+	<thead class="full-width">
+		<tr ng-if="screenWidth>767">
+			<th>ID</th>
+			<th>Donor ismi</th>
+			<th>Konum</th>
+			<th>Kan Grubu</th>
+			<th ng-click="orderByDate()">Olusturma Tarihi</th>
+			<th>ACTION</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="data in dataList">
+			<th>{{data.id}}</th>
+			<td class="dataName">{{data.dataName}}</td>
+			<td>
+				<div ng-click="redirectForMap(data.xLocation,data.yLocation)">haritaya git</div> X:{{data.xLocation}}- Y: {{data.yLocation}}
+			</td>
+			<td class="dataType">
+				<div>{{data.bloodType}}</div>
+			</td>
+			<td class="dataType">
+				<div moment-picker="data.donationDate" locale="tr" format="DD-MM-YYYY HH:mm">{{data.createdAt }}</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<ul uib-pagination ng-click="setPagingData()" total-items="getDataCount" items-per-page="searchQuery.offset" ng-model="currentPage" max-size="3"
+	class="pagination-sm" boundary-links="true" force-ellipses="true" num-pages="numPages"></ul>
+<pre>Sayfa: {{currentPage}} / {{numPages}}</pre>
+</div>
+

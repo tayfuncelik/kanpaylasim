@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- head -->
+    <meta charset="utf-8">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Lazy Load carousel">
+    <meta name="author" content="David Deutsch">
+    <title>
+      Lazy Load Demo | Owl Carousel | 2.2.1
+    </title>
+
+    <!-- Stylesheets -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/css/docs.theme.min.css">
+
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.theme.default.min.css">
+  
+    <!-- javascript -->
+    <script src="assets/vendors/jquery.min.js"></script>
+    <script src="assets/owlcarousel/owl.carousel.js"></script>
+  </head>
+  <body>
+
+   
+
+    <!-- title -->
+    <section class="title">
+      <div class="row">
+        <div class="large-12 columns">
+          <h1>Lazy Load</h1>
+        </div>
+      </div>
+    </section>
+
+    <!--  Demos -->
+    <section id="demos">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="owl-carousel owl-theme">
+            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=1" data-src-retina="https://placehold.it/350x250&text=1-retina" alt="">
+            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=2" data-src-retina="https://placehold.it/350x250&text=2-retina" alt="">
+            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=3" alt="">
+            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=4" alt="">
+            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=5" alt="">
+            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=6" alt="">
+            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=7" alt="">
+            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=8" alt="">
+            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=9" alt="">
+            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=10" alt="">
+            <img class="owl-lazy" data-src="https://placehold.it/350x250&text=11" alt="">
+          </div>
+ 
+          <script>
+            jQuery(document).ready(function($) {
+              $('.owl-carousel').owlCarousel({
+                items: 4,
+                lazyLoad: true,
+                loop: true,
+                margin: 10
+              });
+            });
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="row">
+        <div class="large-12 columns">
+          <h5>
+            <a href="/OwlCarousel2/docs/support-contact.html">David Deutsch</a> 
+            <a id="custom-tweet-button" href="https://twitter.com/share?url=https://github.com/OwlCarousel2/OwlCarousel2&text=Owl Carousel - This is so awesome! " target="_blank"></a> 
+          </h5>
+        </div>
+      </div>
+    </footer>
+
+   
+  </body>
+</html>

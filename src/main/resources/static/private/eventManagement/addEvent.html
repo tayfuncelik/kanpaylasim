@@ -1,0 +1,71 @@
+ 
+	    <form>
+		    <div class="row setup-content" id="step-1">
+		        <div class="col-md-12" >
+		        <h2>Hasta/Hastane Bilgisi</h2>
+		         <div class="form-group">
+		         
+		    	   <label class="control-label">Hasta / Hasta Yakini / Doktor</label>
+		           <div class="input-group input-group-md">
+		               <span class="input-group-addon" > 
+		                 <span class="glyphicon glyphicon-user"></span>
+		               </span> 
+		             <input required="required"  ng-model="entity.dataName"   class="form-control" ></input>
+		           </div>
+		        
+		        	<label class="control-label">{{ 'EVENT.BLOOD_NEED' | translate }} {{ 'EVENT.START_DATE' | translate }}</label>
+		           <div class="input-group input-group-md">
+		               <span class="input-group-addon" > 
+		                 <span class="glyphicon glyphicon-hourglass"></span>
+		               </span> 
+		               <input class="form-control" type="date" placeholder="dd-MM-yyyy" min="01-01-2017" max="31-12-2018" required ng-model="entity.startDate" > </input>
+		           </div>
+		           
+             	  <label class="control-label">{{ 'EVENT.END_DATE' | translate }}</label>
+		           <div class="input-group input-group-md">
+		               <span class="input-group-addon" > 
+		                 <span class="glyphicon glyphicon-hourglass"></span>
+		               </span> 
+		               <input class="form-control" type="date" placeholder="dd-MM-yyyy" min="01-01-2017" max="31-12-2018" required  ng-model="entity.endDate"> </input>
+		           </div>
+		           
+ 
+                    
+                   <label class="control-label">Hastane Lokasyonu</label>
+		           <div class="input-group input-group-md">
+		               <span class="input-group-addon" > 
+		                 <span class="glyphicon glyphicon-map-marker"></span>
+		               </span> 
+		           <button ng-click="getLocation()">Konum Bilgisi Al</button>
+		             <input placeholder="Enlem" required="required"  ng-model="entity.xLocation"   class="form-control" ></input>
+	                 <input placeholder="Boylam" required="required"  ng-model="entity.yLocation"   class="form-control" ></input>
+		           </div>
+<!-- 		           <div id="map" src="entity.locationImage"></div> -->
+		           <img ng-src="{{entity.locationImage}}"/>
+		           
+		           <label class="control-label">Kan Grubu</label>
+		           <div class="input-group input-group-md">
+		                 <span class="input-group-addon" id="sizing-addon1"> 
+		                  <span class="glyphicon glyphicon-heart"></span>
+		                </span> 
+		                <select class="form-control" ng-model="entity.bloodType" ng-options="ba.value as ba.name for ba in dataArray"></select>	 
+		            </div>
+	 
+		          
+		   		   <button class="btn btn-success btn-lg pull-right" ng-click="saveEntity(entity)"  ng-if="!eventId" >Yarat</button>
+		   		   <button class="btn btn-success btn-lg pull-right" ng-click="createEntity(entity)" ng-if="eventId" >Guncelle</button>
+		      		  
+		        </div>
+		      </div>
+		 	</div>
+		  </form>
+
+ 			<button class="btn btn-success btn-lg  m_t_m_40" ui-sref="private.events" > Geri</button>
+ 
+ 
+
+ 
+ 
+
+ 
+ 
