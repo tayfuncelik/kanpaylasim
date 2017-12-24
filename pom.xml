@@ -91,42 +91,57 @@ AngularJS
 			<!-- </configuration> -->
 			<!-- </plugin> -->
 
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.tomcat.maven</groupId> -->
+			<!-- <artifactId>tomcat7-maven-plugin</artifactId> -->
+			<!-- <version>2.2</version> -->
+			<!-- <configuration> -->
+			<!-- <url>http://159.89.30.20:8080/manager/text</url> -->
+			<!-- <server>tomcat8_vy</server> -->
+			<!-- <path>/hospital</path> -->
+			<!-- <username>manager</username> -->
+			<!-- <password>manager</password> -->
+			<!-- </configuration> -->
+			<!-- </plugin> -->
+
+			<!-- https://stackoverflow.com/questions/15410914/tomcatdeploy-cannot-invoke-tomcat-manager-connection-refused -->
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<url>http://127.0.0.1:8080/manager/text</url>
-					<server>tomcat8_vy</server>
-					<path>/mkyongWebApp</path>
-					<username>manager</username>
-					<password>manager</password>
+					<url>http://159.89.30.20:8080/manager/text</url>
+					<server>tomcatserver</server>
+					<path>/hospital</path>
+					<username>admin</username>
+					<password>admin</password>
 				</configuration>
 			</plugin>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.3</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>copy</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>com.github.jsimone</groupId>
-									<artifactId>webapp-runner</artifactId>
-									<version>8.0.30.2</version>
-									<destFileName>webapp-runner.jar</destFileName>
-								</artifactItem>
-							</artifactItems>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-dependency-plugin</artifactId> -->
+			<!-- <version>2.3</version> -->
+			<!-- <executions> -->
+			<!-- <execution> -->
+			<!-- <phase>package</phase> -->
+			<!-- <goals> -->
+			<!-- <goal>copy</goal> -->
+			<!-- </goals> -->
+			<!-- <configuration> -->
+			<!-- <artifactItems> -->
+			<!-- <artifactItem> -->
+			<!-- <groupId>com.github.jsimone</groupId> -->
+			<!-- <artifactId>webapp-runner</artifactId> -->
+			<!-- <version>8.0.30.2</version> -->
+			<!-- <destFileName>webapp-runner.jar</destFileName> -->
+			<!-- </artifactItem> -->
+			<!-- </artifactItems> -->
+			<!-- </configuration> -->
+			<!-- </execution> -->
+			<!-- </executions> -->
+			<!-- </plugin> -->
 
 		</plugins>
 	</build>
