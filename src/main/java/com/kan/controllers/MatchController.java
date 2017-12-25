@@ -36,11 +36,10 @@ public class MatchController {
 	@Autowired
 	@Qualifier("matchService")
 	MatchService matchService;
-	
+
 	@Autowired
 	@Qualifier("eventService")
 	EventService eventService;
-
 
 	@RequestMapping(value = { "/getMatch/{id}" }, method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<DonorDto> getMatch(@PathVariable("id") Long id) {
@@ -65,37 +64,44 @@ public class MatchController {
 		return new ResponseEntity<EventDto>(eventDto, HttpStatus.OK);
 	}
 
-	 
-	@RequestMapping(value = { "/findFirstCreatedDonor/{userId}" }, method = RequestMethod.POST, produces = "application/json")
-	public MatchedDto getFirstCreatedDonor(@PathVariable("userId") Long userId,@RequestBody SearchQuery secondSearchQuery) {
-		
+	@RequestMapping(value = {
+			"/findFirstCreatedDonor/{userId}" }, method = RequestMethod.POST, produces = "application/json")
+	public MatchedDto getFirstCreatedDonor(@PathVariable("userId") Long userId,
+			@RequestBody SearchQuery secondSearchQuery) {
+
 		Map<String, Object> filterMap = new HashMap<String, Object>();
-//		filterMap.put("userId",userId);
-		filterMap.put("createdBy",userId);
+		// filterMap.put("userId",userId);
+		filterMap.put("createdBy", userId);
 
 		SearchQuery searchQuery = new SearchQuery();
 		searchQuery.setStart(0);
 		searchQuery.setOffset(1);
 		searchQuery.setFilterMap(filterMap);
-		
-		DonorDto donorDto = donorService.loadDonor(searchQuery.getStart(), searchQuery.getOffset(), "Id", SortOrder.DESCENDING,
-				searchQuery.getFilterMap(), Donor.class);
-		
-		Donor lastDonorRecord = donorDto.getResultSet().size()>0?donorDto.getResultSet().get(0):null;
-		
-		
-		filterMap = new HashMap<String, Object>();
-		filterMap.put("bloodType",lastDonorRecord.getBloodType().getBloodType());
-		secondSearchQuery.setFilterMap(filterMap);
-		
-		
-		EventDto eventDto = eventService.loadEvent(secondSearchQuery.getStart(), secondSearchQuery.getOffset(), null, null,
-				secondSearchQuery.getFilterMap(), Event.class);
+
+		DonorDto donorDto = donorService.loadDonor(searchQuery.getStart(), searchQuery.getOffset(), "Id",
+				SortOrder.DESCENDING, searchQuery.getFilterMap(), Donor.class);
+
+		Donor lastDonorRecord = donorDto.getResultSet().size() > 0 ? donorDto.getResultSet().get(0) : null;
 
 		MatchedDto matchedDto = new MatchedDto();
+		
+		if (lastDonorRecord == null) {
+			matchedDto.setDonor(new Donor());
+			matchedDto.setEventDto(new EventDto());
+			return matchedDto;
+		}
+		
+		filterMap = new HashMap<String, Object>();
+		filterMap.put("bloodType", lastDonorRecord.getBloodType().getBloodType());
+		secondSearchQuery.setFilterMap(filterMap);
+
+		EventDto eventDto = eventService.loadEvent(secondSearchQuery.getStart(), secondSearchQuery.getOffset(), null,
+				null, secondSearchQuery.getFilterMap(), Event.class);
+		
+		
 		matchedDto.setDonor(lastDonorRecord);
 		matchedDto.setEventDto(eventDto);
-		
+
 		return matchedDto;
 	}
 

@@ -7,7 +7,7 @@
 <div id="listContainer"  layout="column" ng-cloak>
 
 
-	<div layout="row" layout-align="end center"> {{userList.length}} /{{getUserCount}} Kayit Bulundu
+	<div layout="row" layout-align="end center"> {{userList.length}} /{{getUserCount}} {{ 'USER.RECORD_FOUND' | translate }}
 		 <md-button ng-click="refleshPage()" > <i class="fa fa-refresh" aria-hidden="true"></i> Yenile</md-button>
 	   </div>   
   
@@ -17,7 +17,7 @@
 					     <tr ng-if="screenWidth>767">
 					       <th></th> 
 					       <th>ID</th> 
-					       <th>username</th>
+					       <th>{{ 'USER.USERNAME' | translate }}</th>
 					       <th>isim</th>
 					       <th>soyisim</th>
 					       <th>email</th>

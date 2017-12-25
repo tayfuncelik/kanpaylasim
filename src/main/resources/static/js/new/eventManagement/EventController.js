@@ -140,10 +140,10 @@ routerApp.controller('EventListController', function($window,$scope,$state,$stat
 	    
 	    EventService.deleteEvent(idList).then(function successCallback(response) {
 			    console.log("removed succes ");  
-			    alertify.success("Welcome to alertify!");
 			    $scope.getDataList(); 
-			    $scope.matchedCount();
-			    $scope.showLoader = false;;
+//			    $scope.matchedCount();
+			    $scope.showLoader = false;
+			    alertify.success("Başarılı şekilde silindi!");
 		  }, function errorCallback(response) {
 			    console.log("error");
 			    alertify.error("Errorl");
@@ -156,21 +156,30 @@ routerApp.controller('EventListController', function($window,$scope,$state,$stat
    	   $state.reload();
     };
 
+    /**
+     *    $broadcast matchedCount
+     */
+    /*
     $scope.matchedCount = function (){
 		
 	    MatchService.getLastDonorRecord(CommonService.localUserId,{}).then(function successCallback(response) {
-	    	console.log("succes");  
-	    	$scope.matchedCount = response.data.eventDto.totalRecords; 
+	    	console.log("MatchService.getLastDonorRecord");  
+	    	if(response.data && response.data.eventDto){
+	    		$scope.matchedCount = response.data.eventDto.totalRecords; 	
+	    	}else{
+	    		$scope.matchedCount = 0;
+	    	}
+	    	
 		    $rootScope.$broadcast('matchedCount',$scope.matchedCount);
     	  }, function errorCallback(response) {
 		    console.log("error");
 		    alertify.error("Errorl"); 
 	    }); 
-   };
+   };*/
    
    $scope.redirectForMap = function(x,y){
 	   
-	    $scope.entity.locationImage= 'http://maps.google.com/maps/api/staticmap?markers=color:red|'+x+','+y+'|'+x+','+y+'&size=350x350';
+	    $scope.entity.locationImage= 'http://maps.google.com/maps/api/staticmap?markers=color:red|'+x+','+y+'|'+x+','+y+'&size=350x350'+'&key=AIzaSyBM7_AvH62LvVNDHeEpx1nvumoHUyUhSME';
 	    $window.location.href=$scope.entity.locationImage;
    }
    
@@ -200,8 +209,8 @@ routerApp.controller('CreateEventController', function($translate,$window,$scope
 		  $scope.entity.createdBy=window.localStorage.getItem('userId');
 			  EventService.saveEvent($scope.entity).then(function successCallback(response) {
                       console.log("succes");
-				      alertify.success("Created!");
-				      $scope.matchedCount();
+				      alertify.success("Hasta Kaydı Oluşturuldu!");
+				      //$scope.matchedCount();
 				      $state.go("private.events"); 
 				  }, function errorCallback(response) {
 					  alertify.error("Errorl");
@@ -210,19 +219,27 @@ routerApp.controller('CreateEventController', function($translate,$window,$scope
 //		  }
 		  
 		}; 
-		
+		/*
 	   $scope.matchedCount = function (){
 			
 		    MatchService.getLastDonorRecord(CommonService.localUserId,{}).then(function successCallback(response) {
 		    	console.log("succes");  
-		    	$scope.matchedCount = response.data.eventDto.totalRecords; 
+		    	
+		    	if(response.data && response.data.eventDto){
+		    		$scope.matchedCount = response.data.eventDto.totalRecords; 	
+		    	}else{
+		    		$scope.matchedCount = 0;
+		    	}
+		    	
+		    	
+//		    	$scope.matchedCount = response.data.eventDto.totalRecords; 
 			    $rootScope.$broadcast('matchedCount',$scope.matchedCount);
 	    	  }, function errorCallback(response) {
 			    console.log("error");
 			    alertify.error("Errorl"); 
 		    }); 
 	   };
-
+*/
 		
 	   $scope.getBloodTypes = function (){
 			   
@@ -263,25 +280,25 @@ routerApp.controller('CreateEventController', function($translate,$window,$scope
 		    
 //		    'http://maps.google.com/?q=' +latlon;
 		    
-		    $scope.entity.locationImage= 'http://maps.google.com/maps/api/staticmap?markers=color:red|'+latlon+'|'+latlon+'&size=350x350';
+		    $scope.entity.locationImage= 'http://maps.google.com/maps/api/staticmap?markers=color:red|'+latlon+'|'+latlon+'&size=350x350'+'&key=AIzaSyBM7_AvH62LvVNDHeEpx1nvumoHUyUhSME';
 		    
 		}
 		
 		
 		
 		$scope.showError = function(error) {
-		    switch(error.code) {
+			 switch(error.code) {
 		        case error.PERMISSION_DENIED:
-		            alert( "User denied the request for Geolocation.")
+		            alert( "Kullanıcı Konum bilgisini paylaşmayı reddeti.")
 		            break;
 		        case error.POSITION_UNAVAILABLE:
-		        	alert( "Location information is unavailable.")
+		        	alert( "Konum alınamıyor.")
 		            break;
 		        case error.TIMEOUT:
-		        	alert( "The request to get user location timed out")
+		        	alert( "Zaman aşımına uğradı")
 		            break;
 		        case error.UNKNOWN_ERROR:
-		        	alert( "An unknown error occurred.") 
+		        	alert( "Bilinmeyen hata alındı.") 
 		            break;
 		    }
 		};
@@ -325,7 +342,7 @@ routerApp.controller('UpdateEventController', function($window,$scope,$state,$st
 	   		var x =$scope.entity.xLocation;
 	   		var y = $scope.entity.yLocation;
 	   		
-		    $scope.entity.locationImage= 'http://maps.google.com/maps/api/staticmap?markers=color:red|'+x+','+y+'|'+x+','+y+'&size=350x350';
+		    $scope.entity.locationImage= 'http://maps.google.com/maps/api/staticmap?markers=color:red|'+x+','+y+'|'+x+','+y+'&size=350x350'+'&key=AIzaSyBM7_AvH62LvVNDHeEpx1nvumoHUyUhSME';
 	        
 	    }
 	  $scope.getDataById();

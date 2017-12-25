@@ -3,6 +3,11 @@ angular.module('mainApp.services', [])
 
 .service('CommonService',  function ($http) {
 	this.localUserId= window.localStorage.getItem('userId');
+	
+	 this.setLocalUser = function(userId) {
+		 window.localStorage.setItem('userId',userId) ;
+		 this.localUserId = userId;
+    };
 })
 
 .directive('fileModel', ['$parse', function ($parse) {

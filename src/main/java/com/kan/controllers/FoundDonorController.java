@@ -62,6 +62,14 @@ public class FoundDonorController {
 		
 		Event lastEventRecord = eventDto.getResultSet().size()>0?eventDto.getResultSet().get(0):null;
  
+		FoundDonorDto foundDonorDto = new FoundDonorDto();
+
+		if(lastEventRecord==null){
+
+			foundDonorDto.setEvent(new Event());
+			foundDonorDto.setDonorDto(new DonorDto());
+			return foundDonorDto;
+		}
 		
 		filterMap = new HashMap<String, Object>();
 		filterMap.put("bloodType",lastEventRecord.getBloodType().getBloodType());
@@ -71,7 +79,7 @@ public class FoundDonorController {
 		DonorDto donorDto = donorService.loadDonor(secondSearchQuery.getStart(), secondSearchQuery.getOffset(), null, null,
 				secondSearchQuery.getFilterMap(), Donor.class);
 
-		FoundDonorDto foundDonorDto = new FoundDonorDto();
+//		FoundDonorDto foundDonorDto = new FoundDonorDto();
 		foundDonorDto.setEvent(lastEventRecord);
 		foundDonorDto.setDonorDto(donorDto);
 

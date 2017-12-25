@@ -17,7 +17,7 @@ angular.module('donor.services', [])
 				  method: 'POST',
 				  url: endPoint + '/getDonors',
 				  data: searchQuery,
-				  headers: { 'Content-Type': 'application/json' }
+				  headers: { 'Content-Type': 'application/json; charset=UTF-8'}
 	    		}).then(successCallback,errorCallback);
     },  
 	
@@ -25,7 +25,7 @@ angular.module('donor.services', [])
 	    return   $http({
 				  method: 'POST',
 				  url: endPoint + '/getDonor/'+donorId,
-			      headers: {'Content-Type': undefined}
+			      headers: {'Content-Type': 'application/json; charset=UTF-8'}
 	    		}).then(successCallback,errorCallback);
     }, 
 	
@@ -34,7 +34,7 @@ angular.module('donor.services', [])
 				  method: 'POST',
 				  url: endPoint + '/updateDonor',
 				  data: entity,
-				  headers: { 'Content-Type': 'application/json' } 
+				  headers: { 'Content-Type': 'application/json; charset=UTF-8' } 
 	    		}).then(successCallback,errorCallback);
     },
     

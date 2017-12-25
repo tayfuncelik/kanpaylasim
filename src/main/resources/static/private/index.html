@@ -1,15 +1,14 @@
 
 
-<div ng-cloak class="p_t_120 p_b_20">
+<div ng-cloak  ng-class="{'p_t_120 p_b_20' : isim !='private.mainpage' }">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-8">
+			<div ng-class="{'col-sm-2' : isim !='private.mainpage' }" class="else-class"></div>
+			<div ng-class="{'col-sm-8' : isim !='private.mainpage'  }" class="else-class">
 				<div ui-view></div>
 			</div>
 			<div class="col-sm-2"></div>
 		</div>
 	</div>
-	<div class="footer">
-	</div>
+	<div class="footer"></div>
 </div>

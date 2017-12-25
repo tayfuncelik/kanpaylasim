@@ -118,20 +118,18 @@ routerApp.controller('MatchListController', function($window,$scope,$state,$stat
     MatchService.getLastDonorRecord(CommonService.localUserId,$scope.searchQuery).then(function successCallback(response) {
     	console.log("succes"); 
     	 
-	    $scope.lastDonor = response.data.donor;
-	    
-	    $scope.setProject($scope.lastDonor.xLocation,$scope.lastDonor.yLocation);
-	    
-	    $scope.dataList = response.data.eventDto.resultSet;
-	    $scope.getDataCount = response.data.eventDto.totalRecords; 
-	     
+    	if(response.data && response.data.donor){
+    		$scope.lastDonor = response.data.donor;
+		    $scope.setProject($scope.lastDonor.xLocation,$scope.lastDonor.yLocation);
+		    $scope.dataList = response.data.eventDto.resultSet;
+		    $scope.getDataCount = response.data.eventDto.totalRecords; 
+    	}else{
+    		$scope.getDataCount = 0;
+    	}
+    	 
 	    $rootScope.$broadcast('matchedCount',$scope.getDataCount);
 	    $scope.showLoader = false;
-  }, function errorCallback(response) {
-	    console.log("error");
-	    alertify.error("Errorl");
-	    $scope.showLoader = false;
-}); 
+  } ); 
     
     
     $scope.removeSelectedData = function (id){

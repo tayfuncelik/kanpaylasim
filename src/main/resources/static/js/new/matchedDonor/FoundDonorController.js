@@ -109,11 +109,7 @@ routerApp.controller('FoundDonorListController', function($window,$scope,$state,
 				    $rootScope.$broadcast('foundDonorCount',$scope.getDataCount);
 				    $scope.showLoader = false;
 				    
-			  }, function errorCallback(response) {
-				    console.log("error");
-				    alertify.error("Errorl");
-				    $scope.showLoader = false;
-		   }); 
+			  } ); 
      
     }; 
     

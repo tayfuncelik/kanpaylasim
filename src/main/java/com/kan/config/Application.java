@@ -2,6 +2,8 @@ package com.kan.config;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -15,9 +17,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;
+import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
 
 import com.kan.controllers.UserController;
 import com.kan.daoImpl.UserDaoImpl;
@@ -42,6 +48,8 @@ public class Application extends SpringBootServletInitializer {
 		// new File(UploadingController.uploadingdir).mkdirs();
 		SpringApplication.run(Application.class, args);
 	}
+	
+	
 
 //	@Bean
 //	EmbeddedServletContainerCustomizer containerCustomizer() throws Exception {

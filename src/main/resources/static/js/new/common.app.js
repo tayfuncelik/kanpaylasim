@@ -2,9 +2,9 @@
 angular.module('routerApp', ['ui.router','ui.bootstrap' , 'LocalStorageModule', 'mainApp.services' ,'event.services','user.services',
 	'ngAlertify','UserControllers','mainControllers','EventControllers','toggle-switch',
 	'donor.services','DonorController','match.services','MatchController','founDonor.services','FoundDonorController',
-	'local_language'])
+	'local_language','MainPageController'])
 	
-	/*'moment-picker',*/
+	/*'moment-picker', ,'ngSanitize'*/
 
 .config(['$stateProvider','$urlRouterProvider', function($stateProvider,$urlRouterProvider) {
 
@@ -29,12 +29,17 @@ angular.module('routerApp', ['ui.router','ui.bootstrap' , 'LocalStorageModule', 
             controller: 'loginController'
         })
 
-  	  .state('private.login', {
+  	  .state('private.mainpage', {
+  	    url: '/anasayfa',
+  	    templateUrl: 'private/test.html' ,
+  	    controller: 'anasayfaController'
+  	    })
+
+	  .state('private.login', {
   	    url: '/publicLogin',
   	    templateUrl: 'private/login.html',
         controller: 'loginController'
   	    })
-
 
       .state('private.profile', {
 	        url: '/profile/:userId',
@@ -116,5 +121,5 @@ angular.module('routerApp', ['ui.router','ui.bootstrap' , 'LocalStorageModule', 
   	  })
   	  
   	  
-       $urlRouterProvider.otherwise('private/login');
+       $urlRouterProvider.otherwise('private/anasayfa');
  }]);

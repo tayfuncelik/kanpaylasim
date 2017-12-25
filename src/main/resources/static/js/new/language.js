@@ -45,19 +45,24 @@ app.config(function($translateProvider) {
 			BLOOD_TYPE : 'Kan Grubu',
 			RECORDS_FOUND : 'Kayıt Bulundu',
 			DONOR_LIST : 'Donör Listesi',
-			DONOR_LOCATION:'Donörün bulunduğu konum'
+			DONOR_LOCATION : 'Donörün bulunduğu konum'
 		},
-		
-		EVENT:{
-			NEEDER_LIST:"HASTA LİSTESİ",
-			START_DATE:"Başlangıç Tarihi",
-			END_DATE:"Bitiş Tarihi",
-			ACTION:"Aksiyon",
-			CREATE:"Kayıt Oluştur",
-			DELETE:"Kayıt Sil",
-			BLOOD_NEED:"Kan ihtiyaç"
+
+		EVENT : {
+			NEEDER_LIST : "HASTA LİSTESİ",
+			START_DATE : "Başlangıç Tarihi",
+			END_DATE : "Bitiş Tarihi",
+			ACTION : "Aksiyon",
+			CREATE : "Kayıt Oluştur",
+			DELETE : "Kayıt Sil",
+			BLOOD_NEED : "Kan ihtiyaç",
+			UPDATE:"Güncelle",
+			BACK:"Geri",
+			HOSPITAL_LOCATION:"Hastane Konumu",
+			HASTA_ADI:"Hasta/Hastahane/Doktor ismi",
+			HASTA_INFO:"Hasta Kayıt Güncelleme"
 		},
-		
+
 		INDEX_PAGE : {
 
 			MENU : "MENÜ",
@@ -67,7 +72,8 @@ app.config(function($translateProvider) {
 			FOUND_DONOR : "Bulunan Donör",
 			PROFILE : "Profil",
 			USER : "Kullanıcılar",
-			EXIT : "ÇIKIŞ YAP"
+			EXIT : "ÇIKIŞ YAP",
+			LOGON:"GİRİŞ /KAYIT"
 
 		},
 		MATCHED_DONOR : {
@@ -75,23 +81,60 @@ app.config(function($translateProvider) {
 			END_DATE : 'Bitiş Tarihi',
 			BLOOD_TYPE : 'KAN GRUBU',
 			DONATION_DATE : 'BAĞIŞ TARİHİ',
-			NEEDER_NAME: "Hasta/Hastahane/Doktor ismi",
-			ACTION: 'Aksiyon',
-			MATCH_LIST:"Donör için eşleşen hasta listesi",
-			MATCH_DONOR_LIST:"Hasta/Doktorun aradığı donör eşleşmeleri"
+			NEEDER_NAME : "Hasta/Hastahane/Doktor ismi",
+			ACTION : 'Aksiyon',
+			MATCH_LIST : "Donör için eşleşen hasta listesi",
+			MATCH_DONOR_LIST : "Hasta/Doktorun aradığı donör eşleşmeleri"
 		},
-		PROFILE:{
-			PROFILE:"KULLANICI BİLGİLERİ",
-			UPDATE:"Güncelle",
+		PROFILE : {
+			PROFILE : "KULLANICI BİLGİLERİ",
+			UPDATE : "Güncelle",
+			USERNAME : "Kullanıcı Adı",
+			NAME : "İsim",
+			LAST_NAME : "Soy İsim",
+			PASSWORD : "Şifre",
+			HIDE_PASSWORD : "Şifreyi Gizle",
+			SHOW_PASSWORD : "Şifreyi Göster",
+			CONFIRM_PASSWORD : "Şifreyi Doğrula"
+		},
+		ALTINBAS_UNIV : "Altınbaş Üniversitesi Tez Projesidir ",
+	
+		
+		MAIN_PAGE:{
+			SAVE_LIVES_WITH_DONATION : "KAN BAĞIŞI YAP HAYAT KURTAR",
+			BLOOD_DONATION_CONDITON:"KAN BAĞIŞINA UYGUNLUK İÇİN ARANAN KRİTERLER",
+			FEEL_GOOD:"Kendinizi iyi ve sağlıklı hissediyor musunuz?",
+			HEPATIT:"Viral hepatit geçirdiniz mi? ",
+			TRANSFISION:"Son 12 ay içinde size; kan transfüzyonu yapıldı mı? ",
+			CONTIGIOUS:"Son 12 ay içinde; bulaşıcı sarılığı olan biri ile yakın temasınız (örneğin cinsel ilişki) oldu mu? ",
+			HIV:"HIV (AIDS) testiniz pozitif mi ? ",
+			KIZILAY_ARAC:"KIZILAY ARAÇLARI",
+			SAGLIK_KURULUS:"SAĞLIK KURULUŞLARI"	,
+			ACIL_KAN:"ACİL KAN ARANIYOR",
+			USE_APP:"Daha fazlası için siteye kayıt olun hayat kurtarın"
+		},
+		LOGIN:{
+			LOGIN:"GİRİŞ YAP",
 			USERNAME:"Kullanıcı Adı",
-			NAME:"İsim",
-			LAST_NAME:"Soy İsim",
 			PASSWORD:"Şifre",
-			HIDE_PASSWORD:"Şifreyi Gizle",
-			SHOW_PASSWORD:"Şifreyi Göster",
-			CONFIRM_PASSWORD:"Şifreyi Doğrula"
+			REGISTER:"KAYIT OL",
+			NAME:"İsim",
+			LAST_NAME:"Soy isim",
+			CONFIRM_PASSWORD:"Şifreyi Tekrar Giriniz"
+		},
+		USER:{
+			RECORD_FOUND:"Kayıt Bulundu",
+			USERNAME:"Kullanıcı Adı",
+			ACTION:"Aksiyon",
+			USER_INFO:"Kullanıcı Oluştur",
+			SUBMIT:"YARAT",
+			BACK:"GERİ",
+			NAME:"Ad",
+			LAST_NAME:"Soy Ad"
+				
 		}
-
+	 
+			
 	});
 	$translateProvider.translations('de', {
 		TITLE : 'Hallo',

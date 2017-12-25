@@ -161,7 +161,7 @@ routerApp.controller('DonorListController', function($window,$scope,$state,$stat
     
     $scope.redirectForMap = function(x,y){
  	   
-	    $scope.entity.locationImage= 'http://maps.google.com/maps/api/staticmap?markers=color:red|'+x+','+y+'|'+x+','+y+'&size=350x350';
+	    $scope.entity.locationImage= 'http://maps.google.com/maps/api/staticmap?markers=color:red|'+x+','+y+'|'+x+','+y+'&size=350x350'+'&key=AIzaSyBM7_AvH62LvVNDHeEpx1nvumoHUyUhSME';
 	    $window.location.href=$scope.entity.locationImage;
    }
     
@@ -190,7 +190,7 @@ routerApp.controller('CreateDonorController', function($translate,$window,$scope
 		  DonorService.saveDonor(entity).then(function successCallback(response) {
 //        DonorService.saveDonor(entity.createdBy,entity).then(function successCallback(response) {
 			      console.log("succes");
-			      alertify.success("Created!");
+			      alertify.success("Donör kaydı oluşturuldu!");
 			      $state.go("private.donorList"); 
 			  }, function errorCallback(response) {
 				  alertify.error("Errorl");
@@ -216,23 +216,23 @@ routerApp.controller('CreateDonorController', function($translate,$window,$scope
 		    
 //		    'http://maps.google.com/?q=' +latlon;
 		    
-		    $scope.entity.locationImage= 'http://maps.google.com/maps/api/staticmap?markers=color:red|'+latlon+'|'+latlon+'&size=350x350';
+		    $scope.entity.locationImage= 'http://maps.google.com/maps/api/staticmap?markers=color:red|'+latlon+'|'+latlon+'&size=350x350'+'&key=AIzaSyBM7_AvH62LvVNDHeEpx1nvumoHUyUhSME';
 		    
 		}  
 		
 		$scope.showError = function(error) {
 		    switch(error.code) {
 		        case error.PERMISSION_DENIED:
-		            alert( "User denied the request for Geolocation.")
+		            alert( "Kullanıcı Konum bilgisini paylaşmayı reddeti.")
 		            break;
 		        case error.POSITION_UNAVAILABLE:
-		        	alert( "Location information is unavailable.")
+		        	alert( "Konum alınamıyor.")
 		            break;
 		        case error.TIMEOUT:
-		        	alert( "The request to get user location timed out")
+		        	alert( "Zaman aşımına uğradı")
 		            break;
 		        case error.UNKNOWN_ERROR:
-		        	alert( "An unknown error occurred.") 
+		        	alert( "Bilinmeyen hata alındı.") 
 		            break;
 		    }
 		};

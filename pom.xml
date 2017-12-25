@@ -8,10 +8,8 @@
 	<packaging>war</packaging>
 
 	<name>bloody</name>
-	<description>Spring Data JPA 
-Hibernate 
-MySQL in Spring Boot
-AngularJS
+	<description>Öncül Bilgi Tabanlı Kan Paylaşım Sistemi
+
 </description>
 
 	<parent>

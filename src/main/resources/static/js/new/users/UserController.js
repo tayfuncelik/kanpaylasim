@@ -166,7 +166,7 @@ routerApp.controller('createUserController', function($window,$scope,$state,$sta
 			  
 			    UserService.saveUser(entity,function successCallback(response) { 
 				   console.log("succes");
-				     alertify.success("Created!");
+				     alertify.success("Kullanıcı oluşturuldu!");
 				     $state.go("private.users"); 
 				  }, function errorCallback(response) {
 					  if (response.status==409) {

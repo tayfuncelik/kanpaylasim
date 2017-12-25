@@ -38,8 +38,8 @@ public class UserController {
 			return new ResponseEntity<Long>(fetchedUser.getId(), HttpStatus.OK);
 		} else {
 			return 
-//			new ResponseEntity<Long>(HttpStatus.NOT_FOUND);
-			new ResponseEntity<Long>(fetchedUser.getId(), HttpStatus.OK);
+			new ResponseEntity<Long>(HttpStatus.NOT_FOUND);
+//			new ResponseEntity<Long>(fetchedUser.getId(), HttpStatus.OK);
 		}
 	}
 

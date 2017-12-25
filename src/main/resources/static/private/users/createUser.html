@@ -4,10 +4,10 @@
 	    <form>
 		    <div class="row setup-content" id="step-1">
 		        <div class="col-md-12" >
-		        <h2>User Information</h2>
+		        <h2>{{ 'USER.USER_INFO' | translate }}</h2>
 		         <div class="form-group">
 		         
-		    	   <label class="control-label">Name:</label>
+		    	   <label class="control-label">{{ 'USER.NAME' | translate }}:</label>
 		           <div class="input-group input-group-md">
 			               <span class="input-group-addon" id="sizing-addon1"> 
 		                 <span class="glyphicon glyphicon-user"></span>
@@ -15,7 +15,7 @@
 		             <input required="required"  ng-model="entity.firstName"   class="form-control" ></input>
 		           </div>
 		           
-           	   	   <label class="control-label">Last Name:</label>
+           	   	   <label class="control-label">{{ 'USER.LAST_NAME' | translate }}:</label>
 		           <div class="input-group input-group-md">
 			               <span class="input-group-addon" id="sizing-addon1"> 
 		                 <span class="glyphicon glyphicon-user"></span>
@@ -23,7 +23,7 @@
 		             <input required="required"  ng-model="entity.lastName"   class="form-control" ></input>
 		           </div>
 		        
-           	   	   <label class="control-label">Username:</label>
+           	   	   <label class="control-label">{{ 'USER.USERNAME' | translate }}:</label>
 		           <div class="input-group input-group-md">
 			               <span class="input-group-addon" id="sizing-addon1"> 
 		                 <span class="glyphicon glyphicon-user"></span>
@@ -39,14 +39,14 @@
 		               </span> 
 		             <input required="required"  ng-model="entity.email"   class="form-control" ></input>
 		           </div>
-		   		   <button class="btn btn-success btn-lg pull-right" ng-click="saveEntity(entity)" >Submit</button>
+		   		   <button class="btn btn-success btn-lg pull-right" ng-click="saveEntity(entity)" >{{ 'USER.SUBMIT' | translate }}</button>
 		      		  
 		        </div>
 		      </div>
 		 	</div>
 		  </form>
 
-		<button class="btn btn-success btn-lg  m_t_m_40" ui-sref="private.users" > Previous</button>
+		<button class="btn btn-success btn-lg  m_t_m_40" ui-sref="private.users" > {{ 'USER.BACK' | translate }}</button>
 		 
 		 
 		   		 

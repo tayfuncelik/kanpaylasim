@@ -2,16 +2,16 @@
 <form>
 	<div class="row setup-content">
 		<div class="col-md-12">
-			<h2>Event Bilgisi Guncelleme</h2>
+			<h2>{{ 'EVENT.HASTA_INFO' | translate }}</h2>
 			<div class="form-group">
 
-				<label class="control-label">Event Name</label>
+				<label class="control-label">{{ 'EVENT.HASTA_ADI' | translate }}</label>
 				<div class="input-group input-group-md">
 					<span class="input-group-addon"> <span class="glyphicon glyphicon-user"></span>
 					</span> <input required="required" ng-model="entity.dataName" class="form-control"></input>
 				</div>
 
-				<label class="control-label">Hastane Lokasyonu</label>
+				<label class="control-label">{{ 'EVENT.HOSPITAL_LOCATION' | translate }}</label>
 				<div class="input-group input-group-md">
 					<span class="input-group-addon"> <span class="glyphicon glyphicon-map-marker"></span>
 					</span>
@@ -26,7 +26,7 @@
 				
 				
 				
-				<label class="control-label">Start Date:
+				<label class="control-label">{{ 'EVENT.BLOOD_NEED' | translate }} {{ 'EVENT.START_DATE' | translate }} :
 					<div disabled="true" type="date">{{entity.startDate | date:'dd/MM/yyyy' }}</div>
 				</label>
 				<div class="input-group input-group-md">
@@ -35,7 +35,7 @@
 					</input>
 				</div>
 
-				<label class="control-label">Event End Date :
+				<label class="control-label">{{ 'EVENT.END_DATE' | translate }} :
 					<div disabled="true" type="date">{{entity.startDate | date:'dd/MM/yyyy' }}</div>
 				</label>
 				<div class="input-group input-group-md">
@@ -44,16 +44,16 @@
 					</input>
 				</div>
 
-				<label class="control-label">Event Detail</label>
-				<div class="input-group input-group-md">
-					<span class="input-group-addon"> <span class="glyphicon glyphicon-user"></span>
-					</span> <input  ng-model="entity.detail" class="form-control"></input>
-				</div>
+<!-- 				<label class="control-label">Event Detail</label> -->
+<!-- 				<div class="input-group input-group-md"> -->
+<!-- 					<span class="input-group-addon"> <span class="glyphicon glyphicon-user"></span> -->
+<!-- 					</span> <input  ng-model="entity.detail" class="form-control"></input> -->
+<!-- 				</div> -->
 
 
-				<button class="btn btn-success btn-lg pull-right" ng-click="updateEvent(entity,data)">updateData1</button>
+				<button class="btn btn-success btn-lg pull-right" ng-click="updateEvent(entity,data)">{{ 'EVENT.UPDATE' | translate }}</button>
 			</div>
 		</div>
 	</div>
 </form>
-<button class="btn btn-success btn-lg  m_t_m_40" ui-sref="private.events">Previous</button>
+<button class="btn btn-success btn-lg  m_t_m_40" ui-sref="private.events">{{ 'EVENT.BACK' | translate }}</button>
