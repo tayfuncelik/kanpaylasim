@@ -5,6 +5,9 @@ var routerApp = angular.module('EventControllers', []);
 routerApp.controller('EventListController', function($window,$scope,$state,$stateParams,$http, $rootScope,$custom, $log,alertify,EventService,CommonService,MatchService) {
  	
 	$scope.showLoader = true;
+    $rootScope.$broadcast('showLoader',$scope.showLoader);
+
+	    
 	$scope.screenWidth = $window.innerWidth;
     $scope.searchQuery = {"start":0,"offset":6};
 	   
@@ -99,17 +102,21 @@ routerApp.controller('EventListController', function($window,$scope,$state,$stat
   $scope.entity ={};
   
   $scope.getDataList = function (){
-	    $scope.showLoader = true;
+ 		$scope.showLoader = true;
+	    $rootScope.$broadcast('showLoader',$scope.showLoader);
 	    
 	    EventService.getEvents($scope.searchQuery).then(function successCallback(response) {
 			    	console.log("succes"); 
 				    $scope.dataList = response.data.resultSet;
 				    $scope.getDataCount = response.data.totalRecords; 
 				    $scope.showLoader = false;
+				    $rootScope.$broadcast('showLoader',$scope.showLoader);
 			  }, function errorCallback(response) {
 				    console.log("error");
 				    alertify.error("Errorl");
 				    $scope.showLoader = false;
+				    $rootScope.$broadcast('showLoader',$scope.showLoader);
+
 		   }); 
      
     };
@@ -143,11 +150,15 @@ routerApp.controller('EventListController', function($window,$scope,$state,$stat
 			    $scope.getDataList(); 
 //			    $scope.matchedCount();
 			    $scope.showLoader = false;
+			    $rootScope.$broadcast('showLoader',$scope.showLoader);
+
 			    alertify.success("Başarılı şekilde silindi!");
 		  }, function errorCallback(response) {
 			    console.log("error");
 			    alertify.error("Errorl");
 			    $scope.showLoader = false;
+			    $rootScope.$broadcast('showLoader',$scope.showLoader);
+
 		  }); 
 
     };
@@ -192,7 +203,8 @@ routerApp.controller('EventListController', function($window,$scope,$state,$stat
 
 routerApp.controller('CreateEventController', function($translate,$window,$scope,$state,$stateParams,$http, $rootScope,$custom, $log,alertify,EventService,CommonService,MatchService) {
  	
-	$scope.showLoader = true;
+
+
 	$scope.screenWidth = $window.innerWidth;
     $scope.searchQuery = {"start":0,"offset":6};
 	    
@@ -206,15 +218,23 @@ routerApp.controller('CreateEventController', function($translate,$window,$scope
    
    
 	  $scope.saveEntity = function() { 
+		  $scope.showLoader = true;
+	      $rootScope.$broadcast('showLoader',$scope.showLoader);
+		    
 		  $scope.entity.createdBy=window.localStorage.getItem('userId');
 			  EventService.saveEvent($scope.entity).then(function successCallback(response) {
                       console.log("succes");
 				      alertify.success("Hasta Kaydı Oluşturuldu!");
 				      //$scope.matchedCount();
+				      $scope.showLoader = false;
+				      $rootScope.$broadcast('showLoader',$scope.showLoader);
 				      $state.go("private.events"); 
+				      
 				  }, function errorCallback(response) {
 					  alertify.error("Errorl");
 				      console.log("error");
+				      $scope.showLoader = false;
+				     $rootScope.$broadcast('showLoader',$scope.showLoader);
 			   });
 //		  }
 		  
@@ -243,6 +263,9 @@ routerApp.controller('CreateEventController', function($translate,$window,$scope
 		
 	   $scope.getBloodTypes = function (){
 			   
+			$scope.showLoader = true;
+		    $rootScope.$broadcast('showLoader',$scope.showLoader);
+		    
 	    	EventService.getBloodTypes(function successCallback(response) {
 			     console.log("succes");
 			     $scope.dataArray = response.data;
@@ -253,11 +276,14 @@ routerApp.controller('CreateEventController', function($translate,$window,$scope
 		    	if($scope.dataArray && $scope.dataArray[7]){
 			    	$scope.entity.bloodType=$scope.dataArray[7].value;				    		
 		    	}
-		    	
+		    	$scope.showLoader = false;
+		        $rootScope.$broadcast('showLoader',$scope.showLoader);
 		    	
 			  }, function errorCallback(response) {
 			     console.log("error");
 			     alertify.error("Errorl");
+			 	$scope.showLoader = false;
+			    $rootScope.$broadcast('showLoader',$scope.showLoader);
 			 });
 		};
 			

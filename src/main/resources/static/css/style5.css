@@ -356,7 +356,9 @@ tr:nth-child(even) {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(255, 255, 255, 0.7);
+/* 	background: rgba(255, 255, 255, 0.7); */
+		background: rgba(78, 65, 65, 0.7);
+	
 	margin: 0 auto;
 	text-align: center;
 	width: 100%;
@@ -1785,4 +1787,63 @@ label:hover:before {
     border-top-right-radius: 62px;
     margin-left: -10px;
     padding-left: 10px;
+}
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:400,700,300);
+
+*,html{margin:0;padding:0}
+
+//variables
+$baseColor : #e74c3c;
+$fontColor : #fff;
+
+body{
+  background: $baseColor;
+  text-align: center;
+  font-family: 'Comfortaa', cursive;
+}
+svg{
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  display:inline-block;
+}
+h1{
+  text-align: center;
+  color: $fontColor;
+  margin: 0 0 100px;
+  font-size: 34px;
+  font-weight: 100;
+  text-transform: uppercase;
+  background-color: darken($baseColor, 5);
+  padding: 20px 0;
+  b{
+    font-weight: 700;
+  }
+}
+
+//follow me template
+.made-with-love{
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 10px;
+  font-family: arial;
+  color: #fff;
+  i{
+    font-style: normal;
+    color: #F50057;
+    font-size: 14px;
+    position: relative;
+    top: 2px;
+  }
+  a{
+    color: #fff;
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
 }

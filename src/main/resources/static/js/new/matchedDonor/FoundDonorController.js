@@ -4,6 +4,7 @@ var routerApp = angular.module('FoundDonorController', []);
 routerApp.controller('FoundDonorListController', function($window,$scope,$state,$stateParams,$http, $rootScope,$custom, $log,alertify,FoundDonorService,CommonService) {
  	
 	$scope.showLoader = true;
+	$rootScope.$broadcast('showLoader',$scope.showLoader);
 	$scope.screenWidth = $window.innerWidth;
     $scope.searchQuery = {"start":0,"offset":6};
     
@@ -99,7 +100,7 @@ routerApp.controller('FoundDonorListController', function($window,$scope,$state,
   
   $scope.getDataList = function (){
 	    $scope.showLoader = true;
-	    
+	    $rootScope.$broadcast('showLoader',$scope.showLoader);
 	    FoundDonorService.getDonorList(CommonService.localUserId,$scope.searchQuery).then(function successCallback(response) {
 			    	console.log("succes"); 
 			    	$scope.lastDonor = response.data.event;
@@ -108,6 +109,7 @@ routerApp.controller('FoundDonorListController', function($window,$scope,$state,
 				     
 				    $rootScope.$broadcast('foundDonorCount',$scope.getDataCount);
 				    $scope.showLoader = false;
+				    $rootScope.$broadcast('showLoader',$scope.showLoader);
 				    
 			  } ); 
      

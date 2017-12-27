@@ -44,6 +44,12 @@ routerApp.controller('menuController', function($scope,$state,$stateParams,$http
 	});
 //	$scope.$parent
 	
+	
+	 $scope.$on('showLoader', function(event, data) {
+		 $scope.showLoader = data;
+    });  
+	 
+	 
 	 $scope.$on('matchedCount', function(event, data) {
 		 $scope.matchedCount = data;
     });  

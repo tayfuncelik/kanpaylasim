@@ -4,6 +4,8 @@ var routerApp = angular.module('DonorController', []);
 routerApp.controller('DonorListController', function($window,$scope,$state,$stateParams,$http, $rootScope,$custom, $log,alertify,DonorService,CommonService) {
  	
 	$scope.showLoader = true;
+    $rootScope.$broadcast('showLoader',$scope.showLoader);
+
 	$scope.screenWidth = $window.innerWidth;
     $scope.searchQuery = {"start":0,"offset":6};
     
@@ -99,16 +101,21 @@ routerApp.controller('DonorListController', function($window,$scope,$state,$stat
   
   $scope.getDataList = function (){
 	    $scope.showLoader = true;
-	    
+	    $rootScope.$broadcast('showLoader',$scope.showLoader);
+
 	    DonorService.getDonors($scope.searchQuery).then(function successCallback(response) {
 			    	console.log("succes"); 
 				    $scope.dataList = response.data.resultSet;
 				    $scope.getDataCount = response.data.totalRecords; 
 				    $scope.showLoader = false;
+				    $rootScope.$broadcast('showLoader',$scope.showLoader);
+
 			  }, function errorCallback(response) {
 				    console.log("error");
 				    alertify.error("Errorl");
 				    $scope.showLoader = false;
+				    $rootScope.$broadcast('showLoader',$scope.showLoader);
+
 		   }); 
      
     };
@@ -136,16 +143,22 @@ routerApp.controller('DonorListController', function($window,$scope,$state,$stat
     
     $scope.removeDataCommon = function (idList){
 	    $scope.showLoader = true;
+	    $rootScope.$broadcast('showLoader',$scope.showLoader);
+
 	    
 	    DonorService.deleteDonor(idList).then(function successCallback(response) {
 			    console.log("removed succes ");  
 			    alertify.success("Welcome to alertify!");
 			    $scope.getDataList(); 
-			    $scope.showLoader = false;;
+			    $scope.showLoader = false;
+			    $rootScope.$broadcast('showLoader',$scope.showLoader);
+
 		  }, function errorCallback(response) {
 			    console.log("error");
 			    alertify.error("Errorl");
 			    $scope.showLoader = false;
+			    $rootScope.$broadcast('showLoader',$scope.showLoader);
+
 		  }); 
 
     };
@@ -175,6 +188,8 @@ routerApp.controller('DonorListController', function($window,$scope,$state,$stat
 routerApp.controller('CreateDonorController', function($translate,$window,$scope,$state,$stateParams,$http, $rootScope,$custom, $log,alertify,DonorService) {
  	
 	$scope.showLoader = true;
+    $rootScope.$broadcast('showLoader',$scope.showLoader);
+
 	$scope.screenWidth = $window.innerWidth;
     $scope.searchQuery = {"start":0,"offset":6};
 	    
@@ -191,9 +206,14 @@ routerApp.controller('CreateDonorController', function($translate,$window,$scope
 //        DonorService.saveDonor(entity.createdBy,entity).then(function successCallback(response) {
 			      console.log("succes");
 			      alertify.success("Donör kaydı oluşturuldu!");
+			      $scope.showLoader=false;
+			      $rootScope.$broadcast('showLoader',$scope.showLoader);
+
 			      $state.go("private.donorList"); 
 			  }, function errorCallback(response) {
 				  alertify.error("Errorl");
+				  $scope.showLoader=false;
+			      $rootScope.$broadcast('showLoader',$scope.showLoader);
 			      console.log("error");
 		   });
 	 };	 

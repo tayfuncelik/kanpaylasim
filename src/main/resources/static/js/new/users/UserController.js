@@ -4,6 +4,7 @@ var routerApp = angular.module('UserControllers', []);
 routerApp.controller('listUserController', function($window,$scope,$state,$stateParams,$http, $rootScope,$custom, $log,alertify,UserService) {
  	
 	$scope.showLoader = true;
+	$rootScope.$broadcast('showLoader',$scope.showLoader);
 	$scope.screenWidth = $window.innerWidth;
     $scope.button = "All";
     $scope.maxSize = 5;
@@ -79,16 +80,19 @@ routerApp.controller('listUserController', function($window,$scope,$state,$state
   
   $scope.getDataList = function (){
 	    $scope.showLoader = true;
-
+	    $rootScope.$broadcast('showLoader',$scope.showLoader);
+	    
 	    UserService.getUserList($scope.searchQuery,function successCallback(response) {
 		    console.log("succes"); 
 		    $scope.userList = response.data.resultSet;
 		    $scope.getUserCount = response.data.totalRecords; 
 		    $scope.showLoader = false;
+		    $rootScope.$broadcast('showLoader',$scope.showLoader);
 		  }, function errorCallback(response) {
 		    console.log("error");
 		    alertify.error("Errorl");
 		    $scope.showLoader = false;
+		    $rootScope.$broadcast('showLoader',$scope.showLoader);
 		  });  
     };
     
@@ -115,16 +119,19 @@ routerApp.controller('listUserController', function($window,$scope,$state,$state
     
     $scope.removeDataCommon = function (idList){
 	    $scope.showLoader = true;
-
+	    $rootScope.$broadcast('showLoader',$scope.showLoader);
+	    
 	    UserService.deleteUser(idList,function successCallback(response) {
 		    console.log("removed succes ");  
 		    alertify.success("Welcome to alertify!");
 		    $scope.getDataList(); 
 		    $scope.showLoader = false;
-		  }, function errorCallback(response) {
+		    $rootScope.$broadcast('showLoader',$scope.showLoader);
+	    }, function errorCallback(response) {
 		    console.log("error");
 		    alertify.error("Errorl");
 		    $scope.showLoader = false;
+		    $rootScope.$broadcast('showLoader',$scope.showLoader);
 		  });  
     };
     
@@ -140,6 +147,7 @@ routerApp.controller('listUserController', function($window,$scope,$state,$state
 routerApp.controller('createUserController', function($window,$scope,$state,$stateParams,$http, $rootScope,$custom, $log,alertify,UserService) {
  	
 	$scope.showLoader = true;
+	$rootScope.$broadcast('showLoader',$scope.showLoader);
 	$scope.screenWidth = $window.innerWidth;
     $scope.searchQuery = {"start":0,"offset":6};
 	    
